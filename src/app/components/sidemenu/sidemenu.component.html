@@ -1,0 +1,71 @@
+<section class="side-sc" *ngIf="persons && profileImgs[0]">
+  <div class="img-outer">
+    <div class="search" *ngIf="!isHidden()">
+      <form class="flex" #searchForm="ngForm" (ngSubmit)="search()">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          [(ngModel)]="searchedWorks"
+          placeholder="Search..."
+          required
+        />
+        <button class="tab" (click)="search()" [disabled]="searchForm.invalid">search</button>
+      </form>
+    </div>
+    <img
+      src="{{ profileImgs[0].fields.img.fields.file.url }}"
+      alt="Cavidan Talibov"
+    />
+    <a
+      href="https://cavidann.github.io/CV/images/Cavidan_Tal%C4%B1bov.pdf"
+      target="_blank"
+      >Show Cv`s PDF</a
+    >
+  </div>
+
+  <div class="flex">
+    <div
+      [ngClass]="isActive(persons[0].fields.title, 'personal') ? 'active' : ''"
+      class="tab flex flex-v-center col-20"
+      (click)="getChosenSpeciality('personal')"
+    >
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+    <div
+      [ngClass]="isActive(persons[0].fields.title, 'contacts') ? 'active' : ''"
+      class="tab flex flex-v-center col-20"
+      (click)="getChosenSpeciality('contacts')"
+    >
+      <i class="fa fa-comments" aria-hidden="true"></i>
+    </div>
+    <div
+      [ngClass]="isActive(persons[0].fields.title, 'education') ? 'active' : ''"
+      class="tab flex flex-v-center col-20"
+      (click)="getChosenSpeciality('education')"
+    >
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </div>
+    <div
+      [ngClass]="
+        isActive(persons[0].fields.title, 'experience') ? 'active' : ''
+      "
+      class="tab flex flex-v-center col-20"
+      (click)="getChosenSpeciality('experience')"
+    >
+      <i class="fab fa-black-tie" aria-hidden="true"></i>
+    </div>
+    <div
+      [ngClass]="isActive(persons[0].fields.title, 'skills') ? 'active' : ''"
+      class="tab flex flex-v-center col-20"
+      (click)="getChosenSpeciality('skills')"
+    >
+      <i class="fa fa-code" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <div class="speciality-content">
+    <h4>{{ persons[0].fields.title }}</h4>
+    <div [innerHTML]="persons[0].fields.desc | mdToHtml"></div>
+  </div>
+</section>

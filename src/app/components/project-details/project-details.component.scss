@@ -1,0 +1,39 @@
+$yellow: #ffe915;
+
+.detail-sc{
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 40px 0px;
+  box-sizing: border-box;
+}
+
+h1{
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 34px;
+  margin: 10px 0;
+  color: $yellow;
+  text-transform: capitalize;
+}
+
+p{
+  margin-top: 10px;
+}
+
+*{
+  color: white;
+}
+
+@media only screen and (max-width: 1400px){
+  .col-60{
+    width: 80%!important;
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .col-60{
+    width: 100%!important;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

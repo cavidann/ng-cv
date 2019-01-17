@@ -1,1 +1,325 @@
 /* You can add global styles to this file, and also import other style files */
+$black: #484848;
+$yellow: #ffe915;
+$blue: #2A00B2;
+
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.42857143;
+  color: #333;
+  background: $black;
+}
+
+.progress_defalut {
+  height: 8px;
+  float: right;
+  background: grey;
+}
+
+.progress_main {
+  width: 0%;
+  transition: 2s;
+  height: 100%;
+  background: #484848;
+}
+
+.progress {
+  position: relative;
+  width: 100%;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden;
+  margin-bottom: 0px;
+  background-color: transparent;
+  border-radius: 0px;
+  box-shadow: inset 0 1px 2px transparent;
+}
+
+.skills {
+  float: left;
+  margin-top: -8px;
+}
+
+
+*{
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #beae1c;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+    background: url(./assets/imgs/scroll.png);
+  }
+
+  ::-webkit-scrollbar-thumb:window-inactive {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+    background: url(./assets/imgs/scroll.png);
+  }
+}
+
+.col-20{
+  width:20%;
+}
+
+.col-25{
+  width: 25%;
+}
+
+.col-33{
+  width: 33.33%;
+}
+
+.col-40, .skill-40{
+  width: 40%;
+}
+
+.col-50, .my-md-50, .skill-50{
+  width: 50%;
+}
+
+.col-60{
+  width: 60%;
+}
+
+.col-75, .skill-75{
+  width: 75%;
+}
+
+.skill-70{
+  width: 70%;
+}
+
+.skill-80{
+  width: 80%
+}
+
+.skill-90{
+  width: 90%;
+}
+
+.skill-95{
+  width: 95%;
+  transition: 2s;
+}
+
+.my-md-100{
+  width: 100%;
+}
+
+.clearfix{
+  clear: both;
+}
+
+.flex{
+  display: flex;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.flex-v-center{
+  justify-content: center;
+}
+
+.flex-h-center{
+  align-items: center;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.btn{
+  background: $yellow;
+  color: $black!important;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 0px!important;
+  transition: .3s ease-in-out;
+  font: {
+    size: 17px;
+  }
+  &:hover{
+    background: transparent;
+    color: $yellow!important;
+    border: 2px solid $yellow;
+  }
+}
+
+.white{
+  color: white!important;
+}
+
+.tags{
+  background: transparent;
+  color: $yellow!important;
+  border: 1px solid $yellow;
+  margin: 5px!important;
+  margin-left: 0px!important;
+  padding: 5px 8px;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+button{
+  border: 0;
+  padding: 0px;
+  &:focus{
+    outline: 0px;
+  }
+}
+
+img{
+  width: 100%;
+  display: block;
+}
+
+p {
+  margin: 0 0 10px;
+  a{
+    color: #039be5!important;
+  }
+}
+
+section{
+  height: 100vh!important;
+  overflow-y: scroll!important;
+}
+
+form{
+  overflow: hidden;
+  #search{
+    transition: .3s ease-in-out;
+    width: 100%;
+    border: 6px solid $yellow;
+    padding: 0px 9px;
+    color: white;
+    background: $black;
+    box-shadow: 0px 2px 25px $black;
+    font: {
+      size: 15px;
+    }
+    &:focus{
+      outline: 0px;
+    }
+    &::placeholder{
+      color: white;
+    }
+  }
+  .tab{
+    width: 50%;
+    transition: .3s ease-in-out;
+    padding: 7px 0px;
+    background: $yellow;
+    cursor: pointer;
+    font: {
+      size: 22px;
+    }
+  }
+  [disabled]{
+    width: 0px;
+    overflow: hidden;
+    transition: .3s ease-in-out;
+  }
+}
+
+.tab{
+  padding: 5px 0px;
+  color: $black;
+  justify-content: center;
+  box-shadow: 0px 2px 25px;
+  transition: 0.5s;
+  cursor: pointer;
+  i{
+    font-size: 32px;
+  }
+  &.active{
+    box-shadow: 0px 0px 0px;
+  }
+  &:hover{
+    box-shadow: 0px 0.1px 6px;
+  }
+}
+
+.progress{
+  text-align: right;
+  color: #484848;
+  display: inline-block;
+  font-weight: 700;
+  float: right;
+  height: auto;
+}
+
+.speciality-content{
+  h1{
+    margin-bottom: 0px;
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 1600px){
+  .side-sc-container{
+    &.col-25 {
+      width: 30% !important;
+    }
+    &.col-75{
+      width: 70%!important;
+    }
+  }
+}
+
+@media only screen and (max-width: 1120px){
+  .side-sc-container{
+    &.col-25 {
+      width: 36% !important;
+    }
+    &.col-75{
+      width: 64%!important;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .side-sc-container{
+    &.col-25 {
+      width: 40% !important;
+    }
+    &.col-75{
+      width: 60%!important;
+    }
+  }
+}
+
+@media only screen and (max-width: 716px){
+  section{
+    height: auto!important;
+    overflow-y: auto!important;
+  }
+
+  .side-sc-container{
+    &.col-25 {
+      width: 100% !important;
+    }
+    &.col-75{
+      width: 100%!important;
+    }
+  }
+}
