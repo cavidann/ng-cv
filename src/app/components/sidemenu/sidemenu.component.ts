@@ -25,7 +25,7 @@ export class SidemenuComponent implements OnInit {
 
   ngOnInit() {
     this.getChosenSpeciality('skills');
-    this.getAllWorks();
+    // this.getAllWorks();
     this.contentfulService.getProfileImgs()
     .then(profileImgs => this.profileImgs = profileImgs);
 
@@ -40,12 +40,12 @@ export class SidemenuComponent implements OnInit {
     });
   }
 
-  getAllWorks() {
-    this.contentfulService.getWorks()
-    .then(works => {
-        this.allWorks = works;
-      });
-  }
+  // getAllWorks() {
+  //   this.contentfulService.getWorks()
+  //   .then(works => {
+  //       this.allWorks = works;
+  //     });
+  // }
 
   isHidden() {
     return this.router.url.includes('search');
