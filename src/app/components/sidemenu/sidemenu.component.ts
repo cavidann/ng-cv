@@ -15,6 +15,7 @@ export class SidemenuComponent implements OnInit {
   allWorks;
   searchedWorks = '';
   profileImgs: Entry<any>[] = [];
+  opened: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,8 @@ export class SidemenuComponent implements OnInit {
     this.getAllWorks();
     this.contentfulService.getProfileImgs()
     .then(profileImgs => this.profileImgs = profileImgs);
+
+    this.opened = true;
   }
 
   getChosenSpeciality(chosenSpeciality?: String) {
@@ -49,11 +52,16 @@ export class SidemenuComponent implements OnInit {
   }
 
   search(searchForm: NgForm) {
+  this.opened = false;
   this.router.navigate(['/search', this.searchedWorks, '1']);
   }
 
   isActive(activated, current) {
     return activated === current;
+  }
+
+  isMenuOpen() {
+    this.opened = !this.opened;
   }
 
 }

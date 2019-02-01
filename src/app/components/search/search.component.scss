@@ -5,6 +5,7 @@ $black: #484848;
 .works-sc{
   position: relative;
   z-index: 50;
+  min-height: 100vh;
 }
 
 .card{
@@ -19,7 +20,7 @@ $black: #484848;
 }
 
 .img-outer{
-  height: 140px;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -30,6 +31,7 @@ h2{
   margin: 10px 0;
   color: $yellow;
   text-transform: capitalize;
+  margin-bottom: 6px;
 }
 
 p{
@@ -64,19 +66,11 @@ p{
   }
 }
 
-form{
-  position: sticky;
-  top: 0px;
-  right: 0px;
-  z-index: 50;
-  width: 100%;
-}
-
 
 @media only screen and (max-width: 1600px){
-  .col-25{
-    width: 33.33%;
-  }
+  // .col-25{
+  //   width: 33.33%;
+  // }
   .img-outer{
     height: 150px!important;
   }
@@ -99,14 +93,14 @@ form{
     height: 143px!important;
   }
 
-  .col-25{
+  .col-33{
     width: 50%;
   }
 }
 
 
 @media only screen and (max-width: 991px){
-  .col-25{
+  .col-33{
     width: 100%;
   }
   .img-outer{

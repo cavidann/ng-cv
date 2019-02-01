@@ -12,7 +12,7 @@
     </form>
     <div class="searchedElements" *ngIf="searchedWorks.length > 0; else load">
       <div class="flex wrap">
-        <div class="card col-25" *ngFor="let work of searchedWorks.reverse()">
+        <div class="card col-33" *ngFor="let work of searchedWorks.reverse()">
           <div class="img-outer">
             <img
               [src]="work.fields.img.fields.file.url"
@@ -63,5 +63,13 @@
     </div>
   </section>
   <ng-template #load>
-    <div style="font-size:30px; color:#ffe915">Loading...</div>
+    <!-- <div style="font-size:30px; color:#ffe915">Loading...</div> -->
+    <div id="loading">
+        <div id="loading-center">
+            <div class="loader">
+                <div id="largeBox"></div>
+                <div id="smallBox"></div>
+            </div>
+        </div>
+    </div>
   </ng-template>

@@ -49,4 +49,6 @@ export class ContentfulService {
     }, query))
     .then(res => res.items);
   }
+
+
 }

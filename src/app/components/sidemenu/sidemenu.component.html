@@ -1,4 +1,8 @@
-<section class="side-sc" *ngIf="persons && profileImgs[0]">
+<div class="close text-center" (click)="isMenuOpen()">
+    <i *ngIf="opened" class="fa fa-times" aria-hidden="true"></i>
+    <i *ngIf="!opened" class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<section class="side-sc" *ngIf="persons && profileImgs[0]" [class.openMenu]="opened">
   <div class="img-outer">
     <div class="search" *ngIf="!isHidden()">
       <form class="flex" #searchForm="ngForm" (ngSubmit)="search()">

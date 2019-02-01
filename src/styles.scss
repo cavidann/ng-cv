@@ -13,6 +13,10 @@ body{
   background: $black;
 }
 
+i.fa{
+  font-size: 32px;
+}
+
 .progress_defalut {
   height: 8px;
   float: right;
@@ -40,6 +44,7 @@ body{
 .skills {
   float: left;
   margin-top: -8px;
+  margin-left: 10px;
 }
 
 
@@ -259,6 +264,77 @@ form{
   }
 }
 
+* {
+  animation: nav;
+  animation-duration: 1s;
+}
+
+div{
+  transition: .6s ease-in-out;
+}
+
+@keyframes nav {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+#loading {
+  background-color: #484848;
+  height: 100%;
+  width: 100%;
+  // position: fixed;
+  margin-top: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  overflow: hidden !important;
+  right: 0px;
+  z-index: 999; }
+
+#loading-center {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+.loader {
+  width: 3em;
+  height: 3em;
+  animation: loaderAnim 1.25s infinite;
+  outline: 1px solid transparent;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute; }
+
+.loader #largeBox {
+  height: 3em;
+  width: 3em;
+  border: 4px solid #ffe915;
+  outline: 1px solid transparent;
+  position: fixed; }
+
+.loader #smallBox {
+  height: 3em;
+  width: 3em;
+  border: 4px solid #ffe915;
+  position: fixed;
+  z-index: 1;
+  outline: 1px solid transparent;
+  animation: smallBoxAnim 1.25s alternate infinite ease-in-out; }
+
+@keyframes smallBoxAnim {
+  0% {
+    transform: scale(0.2); }
+  100% {
+    transform: scale(0.75); } }
+@keyframes loaderAnim {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(90deg); } }
+
 .progress{
   text-align: right;
   color: #484848;
@@ -273,6 +349,19 @@ form{
     margin-bottom: 0px;
     margin-top: 30px;
   }
+}
+
+.close{
+  position: fixed;
+  top: 40px;
+  left: -100vw;
+  background: $yellow;
+  padding: 5px 0px;
+  min-width: 80px;
+  box-shadow: 0px 2px 25px $black;
+  z-index: 120;
+  cursor: pointer;
+  transition: .6s ease-in-out
 }
 
 @media only screen and (max-width: 1600px){
@@ -310,8 +399,25 @@ form{
 
 @media only screen and (max-width: 716px){
   section{
-    height: auto!important;
+    height: 100vh!important;
     overflow-y: auto!important;
+  }
+  .close{
+    left:0px;
+  }
+  body>.flex{
+    display: block;
+    position: relative;
+  }
+  .side-sc{
+    position: absolute!important;
+    top:0px;
+    left: -100vw;
+    width:100%;
+    transition: .3s ease-in-out;
+  }
+  .openMenu{
+    left: 0vw;
   }
 
   .side-sc-container{
