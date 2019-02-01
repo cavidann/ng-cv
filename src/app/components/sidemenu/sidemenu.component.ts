@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
 export class SidemenuComponent implements OnInit {
 
   persons: Entry<any>[];
-  allWorks;
+  // allWorks;
   searchedWorks = '';
   profileImgs: Entry<any>[] = [];
   opened: boolean;
