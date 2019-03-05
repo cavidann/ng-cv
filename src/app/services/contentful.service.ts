@@ -37,6 +37,13 @@ export class ContentfulService {
     .then(res => res.items[0]);
   }
 
+  getOtherWork(workId): Promise<Entry<any>> {
+    return this.client.getEntries(Object.assign({
+      content_type: 'otherWorks'
+    }, {'sys.id': workId}))
+    .then(res => res.items[0]);
+  }
+
   getPersons(query?: object): Promise<Entry<any>[]> {
     return this.client.getEntries(Object.assign({
       content_type: 'person'

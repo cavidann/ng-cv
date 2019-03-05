@@ -24,11 +24,11 @@ const routes: Routes = [
   ] },
   { path: 'details/l/:id/:skip', component: ProjectDetailsComponent },
   { path: 'details/o/:id/:skip', component: ProjectDetailsComponent },
-  { path: 'details/s/:id/:searchedWord/:skip', component: ProjectDetailsComponent },
+  // { path: 'details/s/:id/:searchedWord/:skip', component: ProjectDetailsComponent },
   // { path: 'details/:id/s/:skip', component: ProjectDetailsComponent },
   { path: 'search/:work/:skip', component: SearchComponent },
-  { path: 'error', component: NotFoundComponent },
-  { path: '**', redirectTo: 'error', pathMatch: 'full' }
+  // { path: 'error', component: NotFoundComponent },
+  // { path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];
 
 @NgModule({

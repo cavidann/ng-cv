@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   goToWorkDetailPage(linkTpye, workId) {
-    this.router.navigate(['/details', linkTpye, workId, this.keyWord, '1']);
+    this.router.navigate(['/details', linkTpye, workId, 1]);
   }
 
   search() {

@@ -24,11 +24,20 @@ export class ProjectDetailsComponent implements OnInit {
   ngOnInit() {
     const workId = this.route.snapshot.paramMap.get('id');
     this.skipId = this.route.snapshot.paramMap.get('skip');
-    console.log(+this.skipId);
-    this.contentfulService.getWork(workId)
-    .then((work) => {
-      this.work = work;
-    });
+
+    const pageType = this.router.url.substring(9, 10);
+
+    if (pageType === 'l') {
+      this.contentfulService.getWork(workId)
+      .then((work) => {
+        this.work = work;
+      });
+    } else if (pageType === 'o') {
+      this.contentfulService.getOtherWork(workId)
+      .then((work) => {
+        this.work = work;
+      });
+    }
   }
 
   isNumber() {
@@ -37,14 +46,6 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   goToProjects() {
-    // const isSearched = this.route.snapshot.paramMap.get('searchedWord');
-    // console.log(isSearched);
-    // if (!isSearched) {
-    //   this.router.navigate(['list', this.skipId]);
-    // } else {
-    //   // this.route.snapshot.paramMap.get('searchedWord');
-    //   this.router.navigate(['search', isSearched, this.skipId]);
-    // }
     this.location.back();
   }
 

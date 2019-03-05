@@ -11,6 +11,8 @@
       <button class="tab" (click)="search()" [disabled]="searchForm.invalid">search</button>
     </form>
     <div class="searchedElements" *ngIf="searchedWorks.length > 0; else load">
+      <h1>Real Works</h1>
+      <hr>
       <div class="flex wrap">
         <div class="card col-33" *ngFor="let work of searchedWorks.reverse()">
           <div class="img-outer">
@@ -43,7 +45,7 @@
             <a href="{{ work.fields.url }}" target="_blank" class="btn">
               Go To Site
             </a>
-            <button class="btn" (click)="goToWorkDetailPage('s', work.sys.id)">
+            <button class="btn" (click)="goToWorkDetailPage('l', work.sys.id)">
               Details
             </button>
           </div>
@@ -51,6 +53,8 @@
       </div>
     </div>
     <div class="searchedElements" *ngIf="searchedOtherWorks.length > 0; else loadOther">
+      <h1>Other Works</h1>
+      <hr>
         <div class="flex wrap">
           <div class="card col-33" *ngFor="let work of searchedOtherWorks.reverse()">
             <div class="img-outer">
@@ -83,7 +87,7 @@
               <a href="{{ work.fields.url }}" target="_blank" class="btn">
                 Go To Site
               </a>
-              <button class="btn" (click)="goToWorkDetailPage('s', work.sys.id)">
+              <button class="btn" (click)="goToWorkDetailPage('o', work.sys.id)">
                 Details
               </button>
             </div>
@@ -92,7 +96,7 @@
       </div>
   </section>
   <ng-template #load>
-    <h1 style="color: white">
+    <h1 style="color: white; padding-left: 12px;">
       Not Founded In Works
     </h1>
     <!-- <div id="loading">
@@ -106,7 +110,7 @@
   </ng-template>
 
   <ng-template #loadOther>
-      <h1 style="color: white">
+      <h1 style="color: white; padding-left: 12px;">
           Not Founded In Other Works
       </h1>
       <!-- <div id="loading">
