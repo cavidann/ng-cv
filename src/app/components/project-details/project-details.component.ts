@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ContentfulService } from 'src/app/services/contentful.service';
 import { Entry } from 'contentful';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-project-details',
@@ -16,7 +17,8 @@ export class ProjectDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private contentfulService: ContentfulService
+    private contentfulService: ContentfulService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -35,14 +37,15 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   goToProjects() {
-    const isSearched = this.route.snapshot.paramMap.get('searchedWord');
-    console.log(isSearched);
-    if (!isSearched) {
-      this.router.navigate(['list', this.skipId]);
-    } else {
-      // this.route.snapshot.paramMap.get('searchedWord');
-      this.router.navigate(['search', isSearched, this.skipId]);
-    }
+    // const isSearched = this.route.snapshot.paramMap.get('searchedWord');
+    // console.log(isSearched);
+    // if (!isSearched) {
+    //   this.router.navigate(['list', this.skipId]);
+    // } else {
+    //   // this.route.snapshot.paramMap.get('searchedWord');
+    //   this.router.navigate(['search', isSearched, this.skipId]);
+    // }
+    this.location.back();
   }
 
 }

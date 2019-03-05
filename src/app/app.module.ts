@@ -10,6 +10,7 @@ import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { OtherWorksComponent } from './components/other-works/other-works.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -17,7 +18,12 @@ const routes: Routes = [
     { path: '', redirectTo: '1', pathMatch: 'full' },
     { path: ':skip', component: ProjectListComponent }
   ] },
+  { path: 'other', children: [
+    { path: '', redirectTo: '1', pathMatch: 'full' },
+    { path: ':skip', component: OtherWorksComponent }
+  ] },
   { path: 'details/l/:id/:skip', component: ProjectDetailsComponent },
+  { path: 'details/o/:id/:skip', component: ProjectDetailsComponent },
   { path: 'details/s/:id/:searchedWord/:skip', component: ProjectDetailsComponent },
   // { path: 'details/:id/s/:skip', component: ProjectDetailsComponent },
   { path: 'search/:work/:skip', component: SearchComponent },
@@ -33,7 +39,8 @@ const routes: Routes = [
     ProjectDetailsComponent,
     SidemenuComponent,
     NotFoundComponent,
-    SearchComponent
+    SearchComponent,
+    OtherWorksComponent
   ],
   imports: [
     BrowserModule,

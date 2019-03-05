@@ -2,7 +2,16 @@
   <div class="col-25 side-sc-container">
     <app-sidemenu></app-sidemenu>
   </div>
-  <div class="col-75 side-sc-container">
+  <div class="col-75 side-sc-container" style="position: relative">
+    <div class="work-types">
+      Works:
+      <a [routerLink]="['/list']" routerLinkActive="active" >
+        Real
+      </a>
+      <a [routerLink]="['/other']" routerLinkActive="active" >
+        Other
+      </a>
+    </div>
     <router-outlet></router-outlet>
   </div>
 </div>

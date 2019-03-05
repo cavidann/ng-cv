@@ -11,6 +11,7 @@ import { Entry } from 'contentful';
 export class SearchComponent implements OnInit {
 
   searchedWorks: Entry<any>[] = [];
+  searchedOtherWorks: Entry<any>[] = [];
   keyWord = this.route.snapshot.paramMap.get('work');
 
   constructor(
@@ -36,5 +37,14 @@ export class SearchComponent implements OnInit {
           return JSON.stringify(item).toLowerCase().includes(keyWord);
         });
       });
+
+    this.contentfulService.getOtherWorks()
+    .then(works => {
+      const keyWord = this.keyWord;
+      this.searchedOtherWorks = works.filter(function(item) {
+          return JSON.stringify(item).toLowerCase().includes(keyWord);
+        });
+      });
+
   }
 }

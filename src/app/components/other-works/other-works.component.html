@@ -1,0 +1,61 @@
+<section class="works-sc" *ngIf="filteredWorks.length > 0; else load">
+    <div class="flex wrap" style="min-height: calc(100vh - 40px);">
+      <div class="card col-33" *ngFor="let work of filteredWorks.reverse()">
+        <div class="img-outer">
+          <img
+            [src]="work.fields.img.fields.file.url"
+            alt="{{ work.fields.title }}"
+          />
+        </div>
+        <h2>{{ work.fields.title }}</h2>
+        <div class="content">
+          <div class="flex wrap">
+            <span
+              class="tags"
+              *ngFor="let technologies of (work.fields.technologies | slice: 0:3)"
+            >
+              {{ technologies }}
+            </span>
+            <span
+              *ngIf="work.fields.technologies.length > 3"
+              style="font-size:30px; color:#ffe915"
+              >...</span
+            >
+          </div>
+          <p>
+            {{ work.fields.shortDesc | slice: 0:120 }}
+            <span *ngIf="work.fields.shortDesc.length > 120">...</span>
+          </p>
+        </div>
+        <div class="buttons flex wrap">
+          <a href="{{ work.fields.url }}" target="_blank" class="btn">
+            Go To Site
+          </a>
+          <button class="btn" (click)="goToWorkDetailPage('o', work.sys.id)">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="paginations flex wrap flex-v-right flex-h-center">
+        <a class="text-center"
+          *ngFor="let pagination of paginations; let i = index"
+          (click)="generatePaginationQuery()"
+          [routerLink]="['/other/' + (i + 1)]"
+          routerLinkActive="active"
+        >
+          {{ i + 1 }}
+        </a>
+      </div>
+  </section>
+  <ng-template #load>
+    <!-- <div style="font-size:30px; color:#ffe915">Loading...</div> -->
+    <div id="loading">
+        <div id="loading-center">
+            <div class="loader">
+                <div id="largeBox"></div>
+                <div id="smallBox"></div>
+            </div>
+        </div>
+    </div>
+  </ng-template>
